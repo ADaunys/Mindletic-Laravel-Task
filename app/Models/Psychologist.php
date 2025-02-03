@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Psychologist extends Model
 {
     use HasFactory;
+    use HasApiTokens;
 
     protected $fillable = ['name', 'email'];
 }

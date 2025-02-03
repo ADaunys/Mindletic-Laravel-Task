@@ -17,7 +17,11 @@ class PsychologistController extends Controller
         ]);
     
         $psychologist = Psychologist::create($request->all());
-        return response()->json($psychologist, 201);
+        $token = $psychologist->createToken('Psychologist Token')->plainTextToken;
+        return response()->json([
+            $psychologist,
+            'token' => $token,
+        ], 201);
     }
     
     // Retrieve a list of psychologists
